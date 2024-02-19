@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using AsStrongAsFuck.Runtime;
+using NetEnigma.Runtime;
 using dnlib.DotNet;
 using dnlib.DotNet.Emit;
 
-namespace AsStrongAsFuck.Mutations
+namespace NetEnigma.Mutations
 {
     public class MutationObf : IObfuscation
     {

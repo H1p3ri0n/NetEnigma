@@ -2,7 +2,7 @@
 using dnlib.DotNet.Emit;
 using System.Collections.Generic;
 
-namespace AsStrongAsFuck.Mutations
+namespace NetEnigma.Mutations
 {
     public interface iMutation
     {

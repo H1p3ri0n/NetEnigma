@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using dnlib.DotNet;
 
-namespace AsStrongAsFuck
+namespace NetEnigma
 {
     public class RenameObfuscation : IObfuscation
     {
@@ -13,7 +13,8 @@ namespace AsStrongAsFuck
         {
             foreach (var type in md.Types)
             {
-                foreach (var method in type.Methods.Where(x => !x.IsConstructor && !x.IsVirtual))
+                // Renaming some of the special named methods will cause crash.
+                foreach (var method in type.Methods.Where(x => !x.IsConstructor && !x.IsVirtual && !x.IsSpecialName))
                     Renamer.Rename(method, Renamer.RenameMode.Logical, 3);
             }
         }

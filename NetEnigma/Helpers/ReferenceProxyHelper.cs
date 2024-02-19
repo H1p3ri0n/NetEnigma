@@ -4,15 +4,15 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using static AsStrongAsFuck.Renamer;
+using static NetEnigma.Renamer;
 
-namespace AsStrongAsFuck.Helpers
+namespace NetEnigma.Helpers
 {
     public class ReferenceProxyHelper
     {
         public static TypeDef CreateDelegateType(MethodSig sig, ModuleDef target, MethodDef original)
         {
-            TypeDef ret = new TypeDefUser("AsStrongAsFuck", Renamer.GetEndName(RenameMode.Base64, 3, 20), target.CorLibTypes.GetTypeRef("System", "MulticastDelegate"));
+            TypeDef ret = new TypeDefUser("NetEnigma", Renamer.GetEndName(RenameMode.Base64, 3, 20), target.CorLibTypes.GetTypeRef("System", "MulticastDelegate"));
             ret.Attributes = original.DeclaringType.Attributes;
 
             var ctor = new MethodDefUser(".ctor", MethodSig.CreateInstance(target.CorLibTypes.Void, target.CorLibTypes.Object, target.CorLibTypes.IntPtr));

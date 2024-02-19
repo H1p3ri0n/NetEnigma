@@ -6,15 +6,18 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace AsStrongAsFuck.Runtime
+namespace NetEnigma.Runtime
 {
     public class RuntimeHelper
     {
         public static OwnRandom Random { get; set; }
 
+        public static string RandStr { get; set; }
+
         static RuntimeHelper()
         {
             Random = new OwnRandom();
+            RandStr = Utils.ScrambleString("netenigmaobfuscator");
         }
 
         public static ModuleDefMD RuntimeModule { get; set; } = ModuleDefMD.Load(typeof(RuntimeHelper).Assembly.Modules.First());

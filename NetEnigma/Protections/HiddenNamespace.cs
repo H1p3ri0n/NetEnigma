@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using dnlib.DotNet;
 
-namespace AsStrongAsFuck
+namespace NetEnigma
 {
     public class HiddenNamespace : IObfuscation
     {

@@ -3,12 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using AsStrongAsFuck.Runtime;
+using NetEnigma.Runtime;
 using dnlib.DotNet;
 using dnlib.DotNet.Emit;
-using static AsStrongAsFuck.Renamer;
+using static NetEnigma.Renamer;
 
-namespace AsStrongAsFuck.Protections
+namespace NetEnigma.Protections
 {
     public class JunkProtection : IObfuscation
     {

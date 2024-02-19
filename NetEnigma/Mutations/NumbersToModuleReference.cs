@@ -1,4 +1,4 @@
-﻿using AsStrongAsFuck.Runtime;
+﻿using NetEnigma.Runtime;
 using dnlib.DotNet;
 using dnlib.DotNet.Emit;
 using dnlib.PE;
@@ -8,7 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace AsStrongAsFuck.Mutations
+namespace NetEnigma.Mutations
 {
     public class NumbersToModuleReference : IObfuscation
     {
@@ -27,7 +27,7 @@ namespace AsStrongAsFuck.Mutations
 
         public FieldDef AddNumberField(int num)
         {
-            var cstype = RuntimeHelper.GetRuntimeType("AsStrongAsFuck.Runtime.NumbersToModule");
+            var cstype = RuntimeHelper.GetRuntimeType("NetEnigma.Runtime.NumbersToModule");
             FieldDef field = cstype.FindField("val");
             Renamer.Rename(field, Renamer.RenameMode.Base64, 2);
             field.DeclaringType = null;

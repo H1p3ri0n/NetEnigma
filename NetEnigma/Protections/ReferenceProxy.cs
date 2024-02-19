@@ -3,13 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using AsStrongAsFuck.Helpers;
-using AsStrongAsFuck.Runtime;
+using NetEnigma.Helpers;
+using NetEnigma.Runtime;
 using dnlib.DotNet;
 using dnlib.DotNet.Emit;
-using static AsStrongAsFuck.Renamer;
+using static NetEnigma.Renamer;
 
-namespace AsStrongAsFuck
+namespace NetEnigma
 {
     //HUUUUUGE THANKS TO MIGHTY!!!
     public class ReferenceProxy : IObfuscation
@@ -54,7 +54,7 @@ namespace AsStrongAsFuck
                     MethodDef value;
                     if (!Proxies.TryGetValue(key, out value))
                     {
-                        var consttype = RuntimeHelper.GetRuntimeType("AsStrongAsFuck.Runtime.RefProxy");
+                        var consttype = RuntimeHelper.GetRuntimeType("NetEnigma.Runtime.RefProxy");
 
                         var proxysig = ReferenceProxyHelper.CreateProxySignature(target, method.Module);
 

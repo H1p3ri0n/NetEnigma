@@ -1,4 +1,4 @@
-﻿using AsStrongAsFuck.Runtime;
+﻿using NetEnigma.Runtime;
 using dnlib.DotNet;
 using System;
 using System.Collections.Generic;
@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace AsStrongAsFuck
+namespace NetEnigma
 {
     public class Renamer
     {

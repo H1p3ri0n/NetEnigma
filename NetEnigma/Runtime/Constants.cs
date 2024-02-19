@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace AsStrongAsFuck.Runtime
+namespace NetEnigma.Runtime
 {
     public class Constants
     {

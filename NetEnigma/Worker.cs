@@ -1,4 +1,4 @@
-using AsStrongAsFuck.Runtime;
+using NetEnigma.Runtime;
 using dnlib.DotNet;
 using dnlib.DotNet.Emit;
 using dnlib.DotNet.Writer;
@@ -12,7 +12,7 @@ using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace AsStrongAsFuck
+namespace NetEnigma
 {
     public class Worker
     {
@@ -48,7 +48,7 @@ namespace AsStrongAsFuck
         {
             Console.WriteLine("Watermarking...");
             TypeRef attrRef = Module.CorLibTypes.GetTypeRef("System", "Attribute");
-            var attrType = new TypeDefUser("", "AsStrongAsFuckAttribute", attrRef);
+            var attrType = new TypeDefUser("", "NetEnigmaAttribute", attrRef);
             Module.Types.Add(attrType);
             var ctor = new MethodDefUser(
                 ".ctor",
@@ -62,7 +62,7 @@ namespace AsStrongAsFuck
             ctor.Body.Instructions.Add(OpCodes.Ret.ToInstruction());
             attrType.Methods.Add(ctor);
             var attr = new CustomAttribute(ctor);
-            attr.ConstructorArguments.Add(new CAArgument(Module.CorLibTypes.String, "AsStrongAsFuck obfuscator by Charter(vk.com/violent_0). " + Code));
+            attr.ConstructorArguments.Add(new CAArgument(Module.CorLibTypes.String, "NetEnigma .NET Obfuscator " + Code));
             Module.CustomAttributes.Add(attr);
         }
 
@@ -246,7 +246,7 @@ namespace AsStrongAsFuck
 
         public void Save()
         {
-            Watermark();
+            // Watermark();
             Logger.LogMessage("Saving as ", Path + ".obfuscated", ConsoleColor.Yellow);
             ModuleWriterOptions opts = new ModuleWriterOptions(Module);
             opts.Logger = DummyLogger.NoThrowInstance;
@@ -257,7 +257,7 @@ namespace AsStrongAsFuck
         public byte[] SaveToArray()
         {
             MemoryStream stream = new MemoryStream();
-            Watermark();
+            // Watermark();
             ModuleWriterOptions opts = new ModuleWriterOptions(Module);
             opts.Logger = DummyLogger.NoThrowInstance;
             Assembly.Write(stream, opts);

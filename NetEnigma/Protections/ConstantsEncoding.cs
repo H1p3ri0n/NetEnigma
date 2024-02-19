@@ -1,4 +1,4 @@
-using AsStrongAsFuck.Runtime;
+using NetEnigma.Runtime;
 using dnlib.DotNet;
 using dnlib.DotNet.Emit;
 using dnlib.PE;
@@ -8,7 +8,7 @@ using System.IO;
 using System.IO.Compression;
 using System.Text;
 
-namespace AsStrongAsFuck
+namespace NetEnigma
 {
     public class ConstantsEncoding : IObfuscation
     {
@@ -19,7 +19,7 @@ namespace AsStrongAsFuck
 
         public void Execute(ModuleDefMD md)
         {
-            var consttype = RuntimeHelper.GetRuntimeType("AsStrongAsFuck.Runtime.Constants");
+            var consttype = RuntimeHelper.GetRuntimeType("NetEnigma.Runtime.Constants");
             FieldDef field = consttype.FindField("array");
             Renamer.Rename(field, Renamer.RenameMode.Base64, 2);
             field.DeclaringType = null;
@@ -82,7 +82,7 @@ namespace AsStrongAsFuck
                 keys.Reverse();
                 foreach (Tuple<int, int, int> v in keys)
                 {
-                    method.Body.Instructions[v.Item1].Operand = "AsStrongAsFuck - Obfuscator by Charter (vk.com/violent_0)";
+                    method.Body.Instructions[v.Item1].Operand = RuntimeHelper.RandStr;
                     method.Body.Instructions.Insert(v.Item1 + 1, new Instruction(OpCodes.Ldc_I4, v.Item2));
                     method.Body.Instructions.Insert(v.Item1 + 2, new Instruction(OpCodes.Ldc_I4, v.Item3));
                     method.Body.Instructions.Insert(v.Item1 + 3, new Instruction(OpCodes.Call, Decryptor));

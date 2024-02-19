@@ -1,13 +1,13 @@
-﻿using AsStrongAsFuck.Runtime;
+﻿using NetEnigma.Runtime;
 using dnlib.DotNet.Emit;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using static AsStrongAsFuck.Mutations.MutationObf;
+using static NetEnigma.Mutations.MutationObf;
 
-namespace AsStrongAsFuck
+namespace NetEnigma
 {
     public class Utils
     {
@@ -29,6 +29,24 @@ namespace AsStrongAsFuck
             if (instruction.GetLdcI4Value() <= 1)
                 return false;
             return true;
+        }
+
+        public static string ScrambleString(string str)
+        {
+            char[] chars = new char[str.Length];
+            Random rand = new Random();
+            int index = 0;
+            while (str.Length > 0)
+            {
+                // Get a random number between 0 and the length of the word. 
+                int next = rand.Next(0, str.Length - 1);
+                // Take the character from the random position and add to our char array.
+                chars[index] = str[next];
+                // Remove the character from the word.
+                str = str.Substring(0, next) + str.Substring(next + 1);
+                ++index;
+            }
+            return new String(chars);
         }
     }
 }

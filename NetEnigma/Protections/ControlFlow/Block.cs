@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace AsStrongAsFuck.ControlFlow
+namespace NetEnigma.ControlFlow
 {
     public class Block
     {

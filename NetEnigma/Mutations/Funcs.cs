@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using AsStrongAsFuck.Runtime;
+using NetEnigma.Runtime;
 using dnlib.DotNet;
 using dnlib.DotNet.Emit;
 
-namespace AsStrongAsFuck.Mutations
+namespace NetEnigma.Mutations
 {
     public class Add : iMutation
     {
@@ -154,7 +154,7 @@ namespace AsStrongAsFuck.Mutations
 
         public FieldDef CreateProperField(TypeDef type)
         {
-            var cotype = RuntimeHelper.GetRuntimeType("AsStrongAsFuck.Runtime.FuncMutation");
+            var cotype = RuntimeHelper.GetRuntimeType("NetEnigma.Runtime.FuncMutation");
             FieldDef field = cotype.Fields.FirstOrDefault(x => x.Name == "prao");
             Renamer.Rename(field, Renamer.RenameMode.Base64, 3);
             field.DeclaringType = null;
@@ -191,7 +191,7 @@ namespace AsStrongAsFuck.Mutations
 
         public void Prepare(TypeDef type)
         {
-            var cotype = RuntimeHelper.GetRuntimeType("AsStrongAsFuck.Runtime.FuncMutation");
+            var cotype = RuntimeHelper.GetRuntimeType("NetEnigma.Runtime.FuncMutation");
             MethodDef todef = cotype.FindMethod("CharToInt");
             todef.Name = Renamer.GetRandomName().Base64Representation();
             todef.DeclaringType = null;

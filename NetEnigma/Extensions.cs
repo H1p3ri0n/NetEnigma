@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace AsStrongAsFuck
+namespace NetEnigma
 {
     public static class Extensions
     {

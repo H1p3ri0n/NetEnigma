@@ -1,10 +1,10 @@
-﻿using AsStrongAsFuck.Runtime;
+﻿using NetEnigma.Runtime;
 using dnlib.DotNet;
 using dnlib.DotNet.Emit;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace AsStrongAsFuck.ControlFlow
+namespace NetEnigma.ControlFlow
 {
     public class ControlFlowObfuscation : IObfuscation
     {
